@@ -1,0 +1,14 @@
+.dropDown{
+    -webkit-appearance: none;
+    border-radius: 0;
+    outline: none;
+    background-color: white;
+    height: 40px;
+    padding: 0 12px;
+    font-style: italic;
+    font-size: 16px;
+  }
+  .dropDown:focus {
+    border: 1px solid #009cda;
+    box-shadow: 0 0 0 4px rgba(0, 141, 200, 0.4);
+  }

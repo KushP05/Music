@@ -1,0 +1,22 @@
+@import 'dropDown.css';
+@import 'slider.css';
+
+.equalizer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+ 
+}
+.equalizer__range{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.eqalizer-value{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100p;
+  height: 219px;
+}
