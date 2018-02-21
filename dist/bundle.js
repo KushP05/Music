@@ -18274,11 +18274,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _dropDown = __webpack_require__(28);
 
-var _dropDown2 = _interopRequireDefault(_dropDown);
-
 var _slider = __webpack_require__(29);
-
-var _slider2 = _interopRequireDefault(_slider);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18358,7 +18354,6 @@ var Home = function (_React$Component) {
     key: 'handleRangeChange',
     value: function handleRangeChange(event) {
       var data = this.state[this.state.musicName.value];
-      console.log(data);
       var g = this.state.musicName.value;
       data[event.target.id] = Number(event.target.value);
       this.setState(_defineProperty({}, this.state.musicName.value, data));
@@ -18385,22 +18380,22 @@ var Home = function (_React$Component) {
             _react2.default.createElement(
               'h5',
               null,
-              ' -12db '
+              ' 0db '
             ),
             _react2.default.createElement(
               'h5',
               null,
-              ' -12db '
+              ' 12db '
             )
           ),
           _react2.default.createElement(
             'div',
             { className: 'equalizer__range' },
             this.state.sliderData.map(function (slider, index) {
-              return _react2.default.createElement(_slider2.default, { max: slider.max, label: slider.label, key: index, id: index, min: slider.min, value: _this3.state[_this3.state.musicName.value] && _this3.state[_this3.state.musicName.value][index] || 0, onChange: _this3.handleRangeChange });
+              return _react2.default.createElement(_slider.Slider, { max: slider.max, label: slider.label, key: index, id: index, min: slider.min, value: _this3.state[_this3.state.musicName.value] && _this3.state[_this3.state.musicName.value][index] || 0, onChange: _this3.handleRangeChange });
             })
           ),
-          _react2.default.createElement(_dropDown2.default, { list: this.state.musicList, value: this.state.musicName.value, onChange: this.handleSelect })
+          _react2.default.createElement(_dropDown.DropDown, { list: this.state.musicList, value: this.state.musicName.value, onChange: this.handleSelect })
         )
       );
     }
@@ -18421,10 +18416,9 @@ exports.default = Home;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.DropDown = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(1);
 
@@ -18434,52 +18428,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var DropDown = function DropDown(_ref) {
+  var list = _ref.list,
+      props = _objectWithoutProperties(_ref, ['list']);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var DropDown = function (_React$Component) {
-  _inherits(DropDown, _React$Component);
-
-  function DropDown() {
-    _classCallCheck(this, DropDown);
-
-    return _possibleConstructorReturn(this, (DropDown.__proto__ || Object.getPrototypeOf(DropDown)).apply(this, arguments));
-  }
-
-  _createClass(DropDown, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          list = _props.list,
-          defaultValue = _props.defaultValue,
-          props = _objectWithoutProperties(_props, ['list', 'defaultValue']);
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'dropDownWrapper' },
-        _react2.default.createElement(
-          'select',
-          _extends({ className: 'dropDown' }, props),
-          list.map(function (item, index) {
-            return _react2.default.createElement(
-              'option',
-              { key: index },
-              ' ',
-              item
-            );
-          })
-        )
-      );
-    }
-  }]);
-
-  return DropDown;
-}(_react2.default.Component);
-
-exports.default = DropDown;
+  return _react2.default.createElement(
+    'div',
+    { className: 'dropDownWrapper' },
+    _react2.default.createElement(
+      'select',
+      _extends({ className: 'dropDown' }, props),
+      list.map(function (item, index) {
+        return _react2.default.createElement(
+          'option',
+          { key: index },
+          ' ',
+          item
+        );
+      })
+    )
+  );
+};
+exports.DropDown = DropDown;
 
 /***/ }),
 /* 29 */
@@ -18491,10 +18461,9 @@ exports.default = DropDown;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Slider = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(1);
 
@@ -18504,48 +18473,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Slider = function Slider(_ref) {
+  var label = _ref.label,
+      max = _ref.max,
+      min = _ref.min,
+      value = _ref.value,
+      props = _objectWithoutProperties(_ref, ['label', 'max', 'min', 'value']);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Slider = function (_React$Component) {
-  _inherits(Slider, _React$Component);
-
-  function Slider() {
-    _classCallCheck(this, Slider);
-
-    return _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).apply(this, arguments));
-  }
-
-  _createClass(Slider, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          max = _props.max,
-          min = _props.min,
-          value = _props.value,
-          label = _props.label,
-          props = _objectWithoutProperties(_props, ['max', 'min', 'value', 'label']);
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'input__range__wrapper' },
-        _react2.default.createElement(
-          'h5',
-          { className: 'input__range__label' },
-          label
-        ),
-        _react2.default.createElement('input', _extends({ className: 'input__range', type: 'range', max: max, min: min, style: { backgroundColor: 'rgba(255, ' + value + ', 0,0.7 )' }, value: value }, props))
-      );
-    }
-  }]);
-
-  return Slider;
-}(_react2.default.Component);
-
-exports.default = Slider;
+  return _react2.default.createElement(
+    'div',
+    { className: 'input__range__wrapper' },
+    _react2.default.createElement(
+      'h5',
+      { className: 'input__range__label' },
+      label
+    ),
+    _react2.default.createElement('input', _extends({ className: 'input__range', type: 'range', max: max, min: min, style: { backgroundColor: 'rgba(255, ' + value + ', 0,0.7 )' }, value: value }, props))
+  );
+};
+exports.Slider = Slider;
 
 /***/ })
 /******/ ]);
