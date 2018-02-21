@@ -59,8 +59,8 @@ export default class Home extends React.Component{
         <div className='equalizer'>
           <div className='eqalizer-value'>
             <h5> -12db </h5>
-            <h5> -12db </h5>
-            <h5> -12db </h5>
+            <h5> 0db </h5>
+            <h5> 12db </h5>
           </div> 
           <div className='equalizer__range'>
           {this.state.sliderData.map((slider,index) => (<Slider max={slider.max} label ={slider.label}key={index} id={index} min={slider.min} value={this.state[this.state.musicName.value] && this.state[this.state.musicName.value][index] || 0} onChange={this.handleRangeChange}/>))}
