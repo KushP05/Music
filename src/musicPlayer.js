@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import DropDown from './components/dropDown';
-import Slider from './components/slider';
+import { DropDown } from './components/dropDown';
+import { Slider }from './components/slider';
 
 export default class Home extends React.Component{
   constructor(){
@@ -49,7 +49,6 @@ export default class Home extends React.Component{
   }
   handleRangeChange(event){
     let data = this.state[this.state.musicName.value];
-    console.log(data);
     let g = this.state.musicName.value;
     data[event.target.id] = Number(event.target.value);
     this.setState({[this.state.musicName.value]: data})

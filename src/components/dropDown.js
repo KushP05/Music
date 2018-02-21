@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-export default class DropDown extends React.Component{
-  render(){
-    const { list,defaultValue, ...props } = this.props;
+export const DropDown=({list, ...props})=>{
     return(
       <div className='dropDownWrapper'>
         <select className='dropDown'{...props}>
@@ -10,5 +8,4 @@ export default class DropDown extends React.Component{
         </select> 
       </div>
     );
-  }
 }
